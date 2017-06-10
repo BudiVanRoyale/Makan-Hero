@@ -1,3 +1,71 @@
-<p>
-  details works!
-</p>
+<nav class="amber darken-4">
+  <div class="nav-wrapper">
+    <a href="#" class="brand-logo center">Details</a>
+    <ul id="nav-mobile" class="left">
+      <li><a routerLink="/feed"><i class="material-icons">keyboard_backspace</i></a></li>
+    </ul>
+  </div>
+</nav>
+<div class="container page">
+  <div class="row">
+    <div class="col s12 m6">
+      <div class="card">
+        <div class="card-content">
+          <div class="row">
+            <div class="col s9">
+              <span class="card-title">Card Title</span>
+            </div>
+            <div class="col s3">
+              <span class="new badge red">Little</span>
+            </div>
+          </div>
+          <p><i class="material-icons">location_on</i> Location:Darul Makmur Toilet</p>
+          <p><i class="material-icons">schedule</i> Expiry:12/12/12</p>
+          <h5>Description</h5>
+          <p>dlksamdlsamdlsamdlasm adslmdaslmdlasmdl asdsalk</p>
+          <br/>
+          <div class="chip">Halal</div>
+        </div>
+        <div class="card-action">
+          <a>Save food!</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col s12 m6">
+      <div class="card">
+        <div class="card-content">
+         <div class="row">
+           <div class="col s3">
+             <i class="material-icons">account_circle</i>
+           </div>
+           <div class="col s6">
+             <h5>Little</h5>
+             <p>Submitted by jacl</p>
+           </div>
+           <div class="col s3">
+             <i class="material-icons">thumb_up</i>
+             <i class="material-icons">thumb_down</i>
+           </div>
+           <p class="center">-5000</p>
+         </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="fixed-action-btn">
+  <a class="btn-floating btn-large waves-effect waves-light red" (click)="openModal()" #fab)><i class="material-icons">add</i></a>
+</div>
+<div #modal1 class="modal bottom-sheet">
+  <div class="modal-content">
+    <h4>Modal Header</h4>
+    <p>A bunch of text</p>
+  </div>
+  <div class="modal-footer">
+    <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
+  </div>
+</div>
+

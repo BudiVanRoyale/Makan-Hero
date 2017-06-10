@@ -49,7 +49,7 @@ import {RouterModule} from "@angular/router";
         component: FeedComponent
       },
       {
-        path: 'details/:id',
+        path: 'details',
         component: DetailsComponent
       }
     ])

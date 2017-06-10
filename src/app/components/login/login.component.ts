@@ -4,11 +4,13 @@ import {Headers, RequestOptions} from '@angular/http';
 import {Observable} from "rxjs/Observable";
 import 'rxjs/Rx';
 import {Router} from "@angular/router";
+import {toast} from '../../toast';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
+  styleUrls: ['./login.component.scss'],
+  providers: [toast]
 })
 export class LoginComponent implements OnInit {
 
@@ -17,17 +19,19 @@ export class LoginComponent implements OnInit {
   private url: string = "http://192.168.1.167:8000/api/v1/auth";
   public token: string;
 
-  constructor(private http: Http,private router:Router) {
-    var currentUser = JSON.parse(localStorage.getItem('currentUser'));
-    if (currentUser != null && this.token != null){
+  constructor(private http: Http, private router: Router, private ts: toast) {
+    //let currentUser = JSON.parse(localStorage.getItem('currentUser'));
+    //this.token = currentUser && currentUser.token;
+
+    if (localStorage.getItem('currentUser') != null){
       this.router.navigate(['/feed']);
     }
-
-    this.token = currentUser && currentUser.token;
   }
 
   ngOnInit() {
+
   }
+
 
   login() {
     let body = 'email=' + this.emailAdd + '&password=' + this.password;
@@ -37,31 +41,22 @@ export class LoginComponent implements OnInit {
         'accept': 'application/json'
       });
     const options = new RequestOptions({headers: headers});
-    this.http.post(this.url, body, options).subscribe((
-      data => {
-        let token = data.json() && data.json().token;
-        if (token){
-          this.token = token;
-          localStorage.setItem('currentUser', JSON.stringify({ token: token }));
+    this.http.post(this.url, body, options).map(res => res.json())
+      .subscribe(
+        messages => {
+          this.token = messages.token;
+          localStorage.setItem('currentUser', this.token);
           this.router.navigate(['/feed']);
-        }else{
-          
-        }
-      }
-    ));
-
-    console.log(this.emailAdd + this.password);
-  }
+          console.log(localStorage.getItem('currentUser'));
+        },
+        error => this.ts.showToast("Try lagi b0ss")
+      );
+  };
 
   private extractData(res: Response) {
     let body = res.json();
     return body.data || {};
   }
 
-  private
-  handleErrorObservable(error: Response | any) {
-    console.error(error.message || error);
-    return Observable.throw(error.message || error);
-  }
 
 }

@@ -3,6 +3,7 @@ import {Http, Response} from '@angular/http';
 import {Headers, RequestOptions} from '@angular/http';
 import {Observable} from "rxjs/Observable";
 import 'rxjs/Rx';
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-login',
@@ -14,9 +15,15 @@ export class LoginComponent implements OnInit {
   private emailAdd: string;
   private password: string;
   private url: string = "http://192.168.1.167:8000/api/v1/auth";
+  public token: string;
 
+  constructor(private http: Http,private router:Router) {
+    var currentUser = JSON.parse(localStorage.getItem('currentUser'));
+    if (currentUser != null && this.token != null){
+      this.router.navigate(['/feed']);
+    }
 
-  constructor(private http: Http) {
+    this.token = currentUser && currentUser.token;
   }
 
   ngOnInit() {
@@ -32,7 +39,14 @@ export class LoginComponent implements OnInit {
     const options = new RequestOptions({headers: headers});
     this.http.post(this.url, body, options).subscribe((
       data => {
-        console.log(data);
+        let token = data.json() && data.json().token;
+        if (token){
+          this.token = token;
+          localStorage.setItem('currentUser', JSON.stringify({ token: token }));
+          this.router.navigate(['/feed']);
+        }else{
+          
+        }
       }
     ));
 

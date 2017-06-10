@@ -37,7 +37,7 @@ import {RouterModule} from "@angular/router";
         component: RegisterComponent
       },
       {
-        path: 'profile/:id',
+        path: 'profile',
         component: ProfileComponent
       },
       {

@@ -1,3 +1,13 @@
 $icon-font-path: "../node_modules/bootstrap-sass/assets/fonts/bootstrap/";
 @import "../node_modules/bootstrap-sass/assets/stylesheets/_bootstrap.scss";
 
+.page{
+  position: relative;
+  top: 25vh;
+}
+
+.cardBtn{
+  text-align: center;
+  background-color: white;
+  color: black;
+}

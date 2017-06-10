@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import * as jQuery from 'jquery';
+
+
 @Component({
   selector: 'app-details',
   templateUrl: './details.component.html',
@@ -6,15 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DetailsComponent implements OnInit {
 
-
-  private modal1: any;
   constructor() { }
 
   ngOnInit() {
   }
 
-  openModal(){
+  openModal() {
 
   }
+
 
 }

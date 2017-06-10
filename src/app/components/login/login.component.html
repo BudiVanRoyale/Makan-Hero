@@ -2,11 +2,11 @@
   <h2>Log in</h2>
   <p>Good to see you again</p>
   <div class="form-group">
-    <input type="text" class="form-control" placeholder="Your Email">
+    <input type="text" class="form-control" placeholder="Your Email" [(ngModel)]="emailAdd">
   </div>
   <div class="form-group">
-    <input type="password" class="form-control" placeholder="Password">
+    <input type="password" class="form-control" placeholder="Password" [(ngModel)]="password">
   </div>
-  <button class="btn">LOG IN</button><br/><br/>
+  <button class="btn" (click)="login()">LOG IN</button><br/><br/>
   <a routerLink="/register">Don't have an account?</a>
 </div>

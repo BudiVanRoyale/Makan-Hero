@@ -13,16 +13,16 @@
         <div class="card-content">
           <div class="row">
             <div class="col s9">
-              <span class="card-title">Card Title</span>
+              <span class="card-title">{{title}}</span>
             </div>
             <div class="col s3">
               <span class="new badge red">Little</span>
             </div>
           </div>
-          <p><i class="material-icons">location_on</i> Location:Darul Makmur Toilet</p>
-          <p><i class="material-icons">schedule</i> Expiry:12/12/12</p>
+          <p><i class="material-icons">location_on</i>{{location}}</p>
+          <p><i class="material-icons">schedule</i>{{expiry}}</p>
           <h5>Description</h5>
-          <p>dlksamdlsamdlsamdlasm adslmdaslmdlasmdl asdsalk</p>
+          <p>{{desc}}</p>
           <br/>
           <div class="chip">Halal</div>
         </div>
@@ -56,6 +56,24 @@
   </div>
 </div>
 
+<div class="fixed-action-btn">
+  <a (click)="openModal()" class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">add</i></a>
+</div>
+<div id="myModal" class="modal">
 
+  <!-- Modal content -->
+  <div class="modal-content">
+    <div class="modal-header">
+      <span class="close" (click)="closeModal()">&times;</span>
+      <h2>Modal Header</h2>
+    </div>
+    <div class="modal-body">
+      <p>Some text in the Modal Body</p>
+      <p>Some other text...</p>
+    </div>
+    <div class="modal-footer">
+      <h3>Modal Footer</h3>
+    </div>
+  </div>
 
-
+</div>

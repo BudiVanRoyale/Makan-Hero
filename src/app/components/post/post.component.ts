@@ -19,8 +19,8 @@ export class PostComponent implements OnInit {
   private dietryType: string;
   private lat: number;
   private loc: string;
-  private halal: boolean;
-  private veg: boolean;
+  private halal: string;
+  private veg: string;
   private expiry: any;
 
   private long: number;
@@ -77,12 +77,12 @@ export class PostComponent implements OnInit {
   }
 
   getDiet() {
-    if (this.halal = true) {
-      this.dietryType = 'halal';
-    } else if (this.veg = true) {
+    if ((this.veg == "veg") && (this.halal == "halal")) {
+      this.dietryType = 'halal,veg';
+    } else if (this.veg == "veg") {
       this.dietryType = 'veg';
-    } else if ((this.veg = true) && (this.halal = true)) {
-      this.dietryType = 'halal & veg';
+    } else if (this.halal == "halal") {
+      this.dietryType = 'halal';
     } else {
       this.dietryType = '-';
     }

@@ -6,7 +6,7 @@
         <li><a routerLink="/profile"><i class="material-icons">account_circle</i></a></li>
       </ul>
       <ul class="right">
-        <li><a routerLink="/profile"><i class="material-icons">refresh</i></a></li>
+        <li><a (click)="getFeed()"><i class="material-icons">refresh</i></a></li>
         <li><a routerLink="/post"><i class="material-icons">add</i></a></li>
       </ul>
     </div>
@@ -28,10 +28,10 @@
           <p class="iconContainer"><i class="material-icons icon">location_on</i><span class="iconContent">{{msg.loc_name}}</span></p>
           <p class="iconContainer"><i class="material-icons icon">schedule</i><span class="iconContent">{{msg.expiry}}</span></p>
           <br/>
-          <div class="chip">Halal</div>
+          <div class="chip">{{msg.type}}</div>
         </div>
         <div class="card-action">
-          <a href="#" class="btn">View details<i class="material-icons right">send</i></a>
+          <a class="btn" (click)="viewDetails(msg.id)">View details<i class="material-icons right">send</i></a>
         </div>
       </div>
     </div>

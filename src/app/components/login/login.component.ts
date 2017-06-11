@@ -49,7 +49,7 @@ export class LoginComponent implements OnInit {
           this.router.navigate(['/feed']);
           console.log(localStorage.getItem('currentUser'));
         },
-        error => this.ts.showToast("Try lagi b0ss")
+        error => this.ts.showToast(error)
       );
   };
 

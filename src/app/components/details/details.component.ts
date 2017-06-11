@@ -3,7 +3,7 @@ import * as jQuery from 'jquery';
 import {Http, Response} from '@angular/http';
 import {Headers, RequestOptions} from '@angular/http';
 import {toast} from '../../toast';
-import { FeedComponent } from '../feed/feed.component';
+import {FeedComponent} from '../feed/feed.component';
 
 
 @Component({
@@ -15,21 +15,22 @@ import { FeedComponent } from '../feed/feed.component';
 export class DetailsComponent implements OnInit {
 
   private url: string = 'http://192.168.1.167:8000/api/v1/foods' + location.pathname.substr(8);
-  private details: any ;
+  private details: any;
   private title: string;
   private desc: string;
   private location: string;
-  private expiry : any;
+  private expiry: any;
 
 
   constructor(private http: Http, private ts: toast, private fc: FeedComponent) {
     this.getDetails();
   }
+
   ngOnInit() {
 
   }
 
-  getDetails(){
+  getDetails() {
     const headers = new Headers(
       {
         'content-type': 'application/json',
@@ -37,19 +38,25 @@ export class DetailsComponent implements OnInit {
         'authorization': 'bearer ' + localStorage.getItem('currentUser')
       });
     const options = new RequestOptions({headers: headers});
-     this.http.get(this.url, options).map(res => res.json()).subscribe(msg => {
-       //console.log(msg.data);
-       this.desc = msg.data.body;
-       this.title = msg.data.title;
-       this.location = msg.data.loc_name;
-       this.expiry = msg.data.expiry;
-     }), err => this.ts.showToast('Error b0ss');
+    this.http.get(this.url, options).map(res => res.json()).subscribe(msg => {
+      //console.log(msg.data);
+      this.desc = msg.data.body;
+      this.title = msg.data.title;
+      this.location = msg.data.loc_name;
+      this.expiry = msg.data.expiry;
+    }), err => this.ts.showToast('Error b0ss');
 
 
     //console.log("dasdsadsadsa" + this.details);
   }
 
+  openModal() {
+    $('#myModal').css("display","block");
+  }
 
+  closeModal(){
+    $('#myModal').css("display","none");
+  }
 
 
 }

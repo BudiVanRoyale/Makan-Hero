@@ -1,15 +1,41 @@
-<nav class="amber darken-4">
-  <div class="nav-wrapper">
-    <a href="#" class="brand-logo center">Profile</a>
-    <ul id="nav-mobile" class="left">
-      <li><a routerLink="/feed"><i class="material-icons">keyboard_backspace</i></a></li>
-    </ul>
+<div class="navbar-fixed">
+  <nav class="amber darken-4">
+    <div class="nav-wrapper">
+      <a href="#" class="brand-logo center">My Profile</a>
+      <ul id="nav-mobile" class="left">
+        <li><a routerLink="/feed"><i class="material-icons">keyboard_backspace</i></a></li>
+      </ul>
+    </div>
+  </nav>
+</div>
+
+<div class="container profile ">
+  <div class="row">
+    <div class="col s12 m6">
+      <div class="card" >
+        <div class="card-content">
+          <div class="row center">
+            <img [src]="pp" width="150" /> 
+            <h4 class="name">My Name <p class="rank">(superhero)</p></h4>
+            <p class="email"> email@address.com </p>
+          </div>
+          <div class="row statistics left">
+            <div class="col s10">
+              <h5>Food Saved:</h5>
+              <h5>Food Shared</h5>
+              <h5>Reputation: </h5>
+            </div>
+             <div class="col s2">
+              <h5><strong>20</strong></h5>
+              <h5><strong>5</strong></h5>
+              <h5><strong>+45</strong></h5>
+            </div>
+          </div>
+          <div class="row logoutSection">
+            <button class="btn" (click)="logout()">Logout</button>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-</nav>
-<div class="container profile">
-  <h4>Jack@gmail.com</h4>
-  <h4>My Points: 3173983</h4>
-  <h4>Food shared: 31231</h4>
-  <h4>Food saved: 13123912</h4>
-  <button class="btn" (click)="logout()">Logout</button>
 </div>

@@ -1,14 +1,18 @@
 .loginForm{
   position: relative;
-  top: 10vh;
+  top: 5vh;
   text-align: center;
   p{
-    margin-bottom: 5vh;
+    margin-bottom: 10vh;
+    margin-top: 0;
+    padding-top:0;
   }
 
   h3{
     font-family: "Arial Black";
     font-weight: 900;
+    padding-bottom: 0;
+    margin-bottom: 0;
   }
 
 }

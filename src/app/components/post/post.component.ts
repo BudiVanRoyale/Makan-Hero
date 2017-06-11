@@ -4,6 +4,7 @@ import {Http, Response} from '@angular/http';
 import {Headers, RequestOptions} from '@angular/http';
 import {toast} from '../../toast';
 import * as moment from 'moment';
+import {Router} from "@angular/router";
 
 
 @Component({
@@ -27,7 +28,7 @@ export class PostComponent implements OnInit {
   private url: string = "http://192.168.1.167:8000/api/v1/foods";
 
 
-  constructor(private http: Http, private ts: toast) {
+  constructor(private http: Http, private ts: toast, private router: Router) {
 
   }
 
@@ -62,6 +63,7 @@ export class PostComponent implements OnInit {
       .subscribe(
         messages => {
           this.ts.showToast("Posted successfully");
+          this.router.navigate(['/feed']);
         },
         error => console.log(ob)
       );

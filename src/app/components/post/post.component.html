@@ -13,39 +13,39 @@
         <div class="card-content">
           <div class="row">
             <div class="input-field col s12">
-              <input id="password" type="text" class="validate">
+              <input id="password" type="text" class="validate" [(ngModel)]="postTitle">
               <label for="password">Title</label>
             </div>
           </div>
           <div class="row">
             <div class="input-field col s12">
-              <input id="location" type="text" class="validate">
+              <input id="password2" type="text" class="validate" [(ngModel)]="expiry">
+              <label for="password2">Expiry(est in hours from now)</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field col s12">
+              <input id="location" type="text" class="validate" [(ngModel)]="loc">
               <label for="location">Location</label>
             </div>
           </div>
           <div class="row">
             <div class="input-field col s12">
-              <textarea id="textarea1" class="materialize-textarea" data-length="140"></textarea>
+              <textarea id="textarea1" class="materialize-textarea" data-length="140" [(ngModel)]="postDesc"></textarea>
               <label for="textarea1">Description</label>
             </div>
           </div>
           <div class="row">
-          <form action="#">
             <p>
-              <input name="group1" type="radio" id="test1" />
-              <label for="test1">Halal</label>
+              <input type="checkbox" class="filled-in" id="filled-in-box"/>
+              <label for="filled-in-box">Halal</label>
             </p>
             <p>
-              <input name="group1" type="radio" id="test2" />
-              <label for="test2">Non-Halal</label>
+              <input type="checkbox" class="filled-in" id="filled-in-box2" />
+              <label for="filled-in-box2">Vegetarian</label>
             </p>
-            <p>
-              <input name="group1" type="radio" id="test3" />
-              <label for="test3">Vegetarian</label>
-            </p>
-          </form>
-          </div>
-          <a class="waves-effect waves-light btn amber darken-4 btn">Submit</a>
+          </div><br/>
+          <a class="waves-effect waves-light btn amber darken-4 btn" (click)="submitPost()">Submit</a>
         </div>
       </div>
     </div>

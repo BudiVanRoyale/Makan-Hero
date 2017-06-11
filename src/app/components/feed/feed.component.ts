@@ -13,11 +13,11 @@ import * as moment from 'moment';
   providers: [toast]
 })
 
+
 export class FeedComponent implements OnInit {
 
   private url = 'http://192.168.1.167:8000/api/v1/foods';
   public msgs: any;
-
   constructor(private ts: toast, private router: Router, private http: Http) {
     if (localStorage.getItem('currentUser') == null) {
       this.router.navigate(['/']);
@@ -55,5 +55,8 @@ export class FeedComponent implements OnInit {
   viewDetails(id) {
     this.router.navigate(['/details', id]);
   }
+
+
+
 
 }

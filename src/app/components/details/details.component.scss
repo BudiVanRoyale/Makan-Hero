@@ -1,7 +1,20 @@
 .page{
-  top: 5vh;
+  top: 0vh;
 }
 
+
+#radioGroup .wrap {
+  display: inline-block;
+}
+#radioGroup label {
+  display: block;
+  text-align: center;
+  margin: 0 0.2em;
+}
+#radioGroup input[type="radio"] {
+  display: block;
+  margin: 0.5em auto;
+}
 
 .modal {
   display: none; /* Hidden by default */

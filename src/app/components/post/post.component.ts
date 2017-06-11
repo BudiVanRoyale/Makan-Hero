@@ -86,7 +86,7 @@ export class PostComponent implements OnInit {
     } else if (this.halal == "halal") {
       this.dietryType = 'halal';
     } else {
-      this.dietryType = '-';
+      this.dietryType = 'others';
     }
   }
 

@@ -40,27 +40,27 @@
                 <h5>How much makan left?</h5>
                 <form action="#" class="left">
                   <p>
-                    <input name="group1" type="radio" id="test1" value="4" />
-                    <label for="test1">Very a lot left</label>
+                    <input name="group1" type="radio" id="test1" value="4"  />
+                    <label for="test1">A lot of food left</label>
                   </p>
                   <p>
                     <input name="group1" type="radio" id="test2" value="3"/>
-                    <label for="test2">Quite a lot left</label>
+                    <label for="test2">Plenty of food left</label>
                   </p>
                   <p>
-                    <input name="group1" type="radio" id="test1" value="2"/>
-                    <label for="test1">Okay okay lah</label>
+                    <input name="group1" type="radio" id="test3" value="2"/>
+                    <label for="test3">Some food left</label>
                   </p>
                   <p>
-                    <input name="group1" type="radio" id="test2" value="1"/>
-                    <label for="test2">Little only left</label>
+                    <input name="group1" type="radio" id="test4" value="1"/>
+                    <label for="test4">Very little of food left</label>
                   </p>
                   <p>
-                    <input name="group1" type="radio" id="test1" value="0"/>
-                    <label for="test1">Very little left</label>
+                    <input name="group1" type="radio" id="test5" value="0"/>
+                    <label for="test5">No more of food left</label>
                   </p>
                   <br />
-                  <button class="btn">Contribute Info</button>
+                  <button class="btn" (click)="postRating()">Contribute Info</button>
                 </form>
            </div>
          </div>
@@ -70,7 +70,8 @@
   </div>
   <div class="row center">
     <div class="chip">Latest Updates</div>
-    <p><b>BudiRoyale</b> said there is <span class="foodStatus">very little food left</span> at <span class="time">3.15pm</span></p>
-    <p><b>BudiRoyale</b> said there is <span class="foodStatus">very little food left</span> at <span class="time">3.25pm</span></p>
+    <div *ngFor="let comment of comments">
+    <p><b>{{comment.user.name}}</b> said there is <span class="foodStatus" style="text-transform: lowercase">{{comment.status}}</span> food at <span class="time">{{comment.created_at}}</span></p>
+    </div>
   </div>
 </div>

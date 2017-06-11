@@ -1,7 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import * as jQuery from 'jquery';
-import {Http} from '@angular/http';
+import {Http, Response} from '@angular/http';
+import {Headers, RequestOptions} from '@angular/http';
 import {toast} from '../../toast';
+import * as moment from 'moment';
 
 
 @Component({
@@ -22,6 +24,7 @@ export class PostComponent implements OnInit {
   private expiry: any;
 
   private long: number;
+  private url: string = "http://192.168.1.167:8000/api/v1/foods";
 
 
   constructor(private http: Http, private ts: toast) {
@@ -37,17 +40,32 @@ export class PostComponent implements OnInit {
     this.getDiet();
     let ob = {
       'title': this.postTitle,
-      'lat': this.lat,
-      'long': this.long,
+      'lat': 89,
+      'lng': 89,
       'loc_name': this.loc,
       'body': this.postDesc,
       'type': this.dietryType,
-      'expiry': Date.now() + (this.expiry * 60 * 60 * 1000)
+      'expiry': moment().utc().add(this.expiry, 'hours').format('YYYY-MM-DD hh:mm:ss')
     };
     if ((this.postTitle == null) || (this.loc == null) || (this.expiry == null)) {
       this.ts.showToast('Yo b0ss please fill in title/location/expiry!');
     }
-    console.log(ob);
+
+    const headers = new Headers(
+      {
+        'content-type': 'application/json',
+        'accept': 'application/json',
+        'authorization': 'bearer ' + localStorage.getItem('currentUser')
+      });
+    const options = new RequestOptions({headers: headers});
+    this.http.post(this.url, ob, options).map(res => res.json())
+      .subscribe(
+        messages => {
+          this.ts.showToast("Posted successfully");
+        },
+        error => console.log(ob)
+      );
+
   }
 
   getLat() {

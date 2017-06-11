@@ -21,8 +21,11 @@ $primary-color-2: #ff9100;
   box-shadow: none !important;
 }
 
+.navbar-fixed {
+	margin-bottom: 12px;
+}
+
 nav {
-	margin-bottom: 20px;
   @include bgGradient();
 }
 
@@ -68,14 +71,19 @@ nav {
   @include bgGradient();
 }
 /* label focus color */
- input:focus + label , textarea:focus + label {
-   color: #f57c00 !important;
+ input:focus + label , textarea:focus + label, [type="checkbox"].filled-in:checked + label:after {
+   color: $primary-color-2 !important;
  }
  /* label underline focus color */
  input:focus,textarea:focus {
-   border-bottom: 1px solid #f57c00 !important;
-   box-shadow: 0 1px 0 0 #f57c00 !important
+   border-bottom: 1px solid $primary-color-2 !important;
+   box-shadow: 0 1px 0 0 $primary-color-2 !important;
  }
+
+ input[type="checkbox"].filled-in:checked + label:after{
+     border: 2px solid $primary-color-2 !important;
+     background-color: $primary-color-2 !important;
+}
 
 #snackbar {
   visibility: hidden;

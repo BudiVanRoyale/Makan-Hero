@@ -14,12 +14,13 @@ import {FeedComponent} from '../feed/feed.component';
 })
 export class DetailsComponent implements OnInit {
 
-  private url: string = 'http://192.168.1.167:8000/api/v1/foods' + location.pathname.substr(8);
+  private url: string = 'http://192.168.1.167:8000/api/v1/foods' + location.pathname.substr(8)+"/comments";
   private details: any;
   private title: string;
   private desc: string;
   private location: string;
   private expiry: any;
+  private status: string;
 
 
   constructor(private http: Http, private ts: toast, private fc: FeedComponent) {
@@ -44,6 +45,7 @@ export class DetailsComponent implements OnInit {
       this.title = msg.data.title;
       this.location = msg.data.loc_name;
       this.expiry = msg.data.expiry;
+      this.status = msg.data.status;
     }), err => this.ts.showToast('Error b0ss');
 
 

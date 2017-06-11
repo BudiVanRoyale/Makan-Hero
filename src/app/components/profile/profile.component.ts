@@ -47,6 +47,8 @@ export class ProfileComponent implements OnInit {
       this.saved = msg.user.saved;
       this.shared = msg.user.offered;
       this.pp = msg.user.dp;
+      this.heroType = msg.user.rank;
+      console.log(this.heroType);
     }), err => this.ts.showToast('Error b0ss');
   }
 

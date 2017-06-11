@@ -18,7 +18,13 @@ body {
 
 }
 
+.foodStatus {
+  color: $primary-color-1;
+}
 
+.time {
+  color: $primary-color-1;
+}
 
 .btn {
   @include bgGradient();
